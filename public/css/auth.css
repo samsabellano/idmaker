@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "sans-serif" !important;
+}
+
+body {
+  background-color: #EEEEF0 !important;
+}
+
+.login__main__body {
+  display: table;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+.login__main {
+  width: 100%;
+}
+.login__main .login__wrapper {
+  width: 100%;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+.login__main .login__wrapper .login__card {
+  background-color: #fff;
+  margin: 1.875rem auto;
+  padding: 30px;
+  width: 400px;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 28px -15px rgba(0, 0, 0, 0.1);
+}
+.login__main .login__wrapper .login__card .custom__field__message {
+  font-size: 0.75rem;
+  font-weight: v 500;
+}
+
+.auth__text__input {
+  font-size: 0.938rem !important;
+  border-radius: 10px !important;
+}
+.auth__text__input:focus {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px !important;
+}
+
+.auth__button__submit {
+  font-size: 0.938rem !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  background-color: #1A1E33 !important;
+}
+
+.auth__text__input__label {
+  font-size: 0.875rem;
+}
