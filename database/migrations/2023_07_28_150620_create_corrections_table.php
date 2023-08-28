@@ -16,8 +16,8 @@ return new class extends Migration {
     {
         Schema::create('corrections', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Transaction::class, 'transaction_id')->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Status::class, 'status_id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Transaction::class, 'transaction_id')->constrained('transactions')->cascadeOnDelete();
+            $table->foreignIdFor(Status::class, 'status_id')->constrained('statuses')->cascadeOnDelete();
             $table->mediumText('remarks');
             $table->string('description');
             $table->timestamps();

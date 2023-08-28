@@ -1,64 +1,71 @@
+import domtoimage from "dom-to-image";
 // Mirror input field
-const first_name = document.getElementById("id-text-input-first-name");
-const middle_name = document.getElementById("id-text-input-middle-name");
-const last_name = document.getElementById("id-text-input-last-name");
-const suffix = document.getElementById("id-text-input-suffix");
-const college = document.querySelector("#id-text-input-college");
-const course = document.getElementById("id-text-input-course");
-const school_id = document.getElementById("id-text-input-school-id");
-const start_school_year = document.getElementById(
-    "id-text-input-start-school-year"
-);
-const end_school_year = document.getElementById(
-    "id-text-input-end-school-year"
-);
-const guardian_name = document.getElementById("id-text-input-guardian-name");
-const guardian_contact_number = document.getElementById(
-    "id-text-input-guardian-contact-number"
-);
-const guardian_address = document.getElementById(
-    "id-text-input-guardian-address"
+const firstName = document.getElementById("firstName");
+const middleName = document.getElementById("middleName");
+const lastName = document.getElementById("lastName");
+const suffix = document.getElementById("suffix");
+const birthDate = document.getElementById("birthDate");
+const college = document.querySelector("#college");
+const course = document.getElementById("course");
+const studentIdNumber = document.getElementById("studentIdNumber");
+const schoolYear = document.getElementById("schoolYear");
+const guardianFullName = document.getElementById("guardianFullName");
+const guardianContactNumber = document.getElementById("guardianContactNumber");
+const guardianCompleteAddress = document.getElementById(
+    "guardianCompleteAddress"
 );
 
-first_name.addEventListener("input", function () {
+firstName.addEventListener("input", function () {
     textFormatterForName(this);
-    document.getElementById("id-template-first-name").textContent = this.value;
+    document.getElementById("previewFirstName").textContent = this.value;
 });
 
-middle_name.addEventListener("input", function () {
+middleName.addEventListener("input", function () {
     textFormatterForName(this);
     shortenedMiddleName();
 });
 
-last_name.addEventListener("input", function () {
+lastName.addEventListener("input", function () {
     textFormatterForName(this);
-    document.getElementById("id-template-last-name").textContent = this.value;
+    document.getElementById("previewLastName").textContent = this.value;
 });
 
 suffix.addEventListener("input", function () {
     personSuffix();
 });
 
+birthDate.addEventListener("input", function () {
+    document.getElementById("previewBirthDate").textContent = this.value;
+});
+
 college.addEventListener("input", function () {
-    document.getElementById("id-template-college").textContent = this.value;
+    document.getElementById("previewCollege").textContent = this.value;
+});
+
+schoolYear.addEventListener("input", function () {
+    document.getElementById("previewSchoolYear").textContent = this.value;
 });
 
 course.addEventListener("input", function () {
-    document.getElementById("id-template-course").textContent = this.value;
+    document.getElementById("previewCourse").textContent = this.value;
 });
 
-school_id.addEventListener("input", function () {
-    document.getElementById("id-template-school-id").textContent = this.value;
+studentIdNumber.addEventListener("input", function () {
+    document.getElementById("previewStudentIdNumber").textContent = this.value;
 });
 
-start_school_year.addEventListener("input", function () {
-    idSchoolYear();
-    validateSchoolYear();
+guardianFullName.addEventListener("input", function () {
+    document.getElementById("previewGuardianFullName").textContent = this.value;
 });
 
-end_school_year.addEventListener("input", function () {
-    idSchoolYear();
-    validateSchoolYear();
+guardianCompleteAddress.addEventListener("input", function () {
+    document.getElementById("previewGuardianCompleteAddress").textContent =
+        this.value;
+});
+
+guardianContactNumber.addEventListener("input", function () {
+    document.getElementById("previewGuardianContactNumber").textContent =
+        this.value;
 });
 
 const textFormatterForName = (textInput) => {
@@ -71,74 +78,30 @@ const textFormatterForName = (textInput) => {
 };
 
 const shortenedMiddleName = () => {
-    const middleNameElement = document.getElementById(
-        "id-template-middle-name"
-    );
-    const middleNameResult = middle_name.value.charAt(0).toUpperCase();
+    const middleNameElement = document.getElementById("previewMiddleName");
+    const middleNameResult = middleName.value.charAt(0).toUpperCase();
     if (middleNameResult) {
         middleNameElement.textContent = `${middleNameResult}.`;
     } else {
         middleNameElement.textContent = "";
     }
 
-    const words = middle_name.value.split(" ");
+    const words = middleName.value.split(" ");
     for (var i = 0; i < words.length; i++) {
         const word = words[i];
         words[i] = word.charAt(0).toUpperCase() + word.slice(1);
     }
-    middle_name.value = words.join(" ");
+    middleName.value = words.join(" ");
 };
 
 const personSuffix = () => {
-    const suffixElement = document.getElementById("id-template-suffix");
+    const suffixElement = document.getElementById("previewSuffix");
     const pSuffix = suffix.value;
 
     if (pSuffix) {
         suffixElement.textContent = `${pSuffix}.`;
     } else {
         suffixElement.textContent = "";
-    }
-};
-
-const idSchoolYear = () => {
-    const startYear = start_school_year.value;
-    const endYear = end_school_year.value;
-    const schoolYearElement = document.getElementById(
-        "id-template-school-year"
-    );
-    schoolYearElement.textContent = "S.Y.";
-
-    if (startYear && endYear) {
-        const schoolYearResult = `S.Y. ${startYear} - ${endYear}`;
-        schoolYearElement.textContent = schoolYearResult;
-    } else {
-        schoolYearElement.textContent = "S.Y.";
-    }
-};
-
-const validateSchoolYear = () => {
-    var invalidSchoolYearElement =
-        document.getElementById("invalid-start-year");
-
-    if (start_school_year && end_school_year) {
-        const startYear = parseInt(start_school_year.value);
-        const endYear = parseInt(end_school_year.value);
-
-        if (startYear > endYear) {
-            invalidSchoolYearElement.textContent =
-                "Start year should be lesser than the end year.";
-            invalidSchoolYearElement.style.display = "block";
-            start_school_year.classList.add("is-invalid");
-        } else if (startYear === endYear) {
-            invalidSchoolYearElement.textContent =
-                "Start year should not be equal to end year.";
-            invalidSchoolYearElement.style.display = "block";
-            start_school_year.classList.add("is-invalid");
-        } else {
-            invalidSchoolYearElement.textContent = "";
-            invalidSchoolYearElement.style.display = "none";
-            start_school_year.classList.remove("is-invalid");
-        }
     }
 };
 
@@ -287,11 +250,15 @@ let stopCamLabel = "Stop Camera";
 
 btnOnOff.addEventListener("click", () => {
     if (btnOnOff.textContent === startCamLabel) {
-        btnOnOff.textContent = stopCamLabel;
         webcam.start();
+        btnOnOff.textContent = stopCamLabel;
+        btnOnOff.style.backgroundColor = "#1A1E33";
+        btnOnOff.style.color = "#FFFFFF";
     } else {
-        btnOnOff.textContent = startCamLabel;
         webcam.stop();
+        btnOnOff.textContent = startCamLabel;
+        btnOnOff.style.backgroundColor = "#E5E5E5";
+        btnOnOff.style.color = "#1A1E33";
     }
 });
 
@@ -332,3 +299,16 @@ const displayPictureToIdTemplate = () => {
 };
 
 // END Web Cam Modal Functionalities
+
+const btnSaveIdRecord = document.getElementById("btnSaveIdRecord");
+const IDFront = document.getElementById("IDFront");
+const IDBack = document.getElementById("IDBack");
+
+btnSaveIdRecord.onclick = function () {
+    domtoimage.toBlob(IDFront).then(function (blob) {
+        window.saveAs(blob, "front.png");
+    });
+    domtoimage.toBlob(IDBack).then(function (blob) {
+        window.saveAs(blob, "back.png");
+    });
+};

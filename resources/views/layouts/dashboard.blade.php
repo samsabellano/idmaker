@@ -1,5 +1,4 @@
-@extends('layouts.school.index', ['title' => 'Dashboard - Web ID Maker'])
-
+@extends('index', ['title' => 'Dashboard - Web ID Maker'])
 
 @section('page-header')
 <div class="w-100 d-flex align-items-center justify-content-between">
@@ -19,7 +18,7 @@
                             <h3 class="card__count">140</h3>
                         </div>
                         <div class="card__icon__container card__icon__container__pictured">
-                            <i class="fa-solid fa-check"></i>
+                            <i class="bi bi-images"></i>
                         </div>
                     </div>
                 </div>
@@ -34,7 +33,7 @@
                             <h3 class="card__count">140</h3>
                         </div>
                         <div class="card__icon__container card__icon__container__printing">
-                            <i class="fa-solid fa-print"></i>
+                            <i class="bi bi-printer"></i>
                         </div>
                     </div>
                 </div>
@@ -49,7 +48,7 @@
                             <h3 class="card__count">300</h3>
                         </div>
                         <div class="card__icon__container card__icon__container__delivered">
-                            <i class="fa-solid fa-truck-fast"></i>
+                            <i class="bi bi-truck"></i>
                         </div>
                     </div>
                 </div>
@@ -64,7 +63,7 @@
                             <h3 class="card__count">900+</h3>
                         </div>
                         <div class="card__icon__container card__icon__container__received">
-                            <i class="fa-solid fa-box-open"></i>
+                            <i class="bi bi-box-seam"></i>
                         </div>
                     </div>
                 </div>

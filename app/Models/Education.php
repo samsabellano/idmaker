@@ -9,7 +9,23 @@ class Education extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug'];
+    protected $table = 'educations';
+    protected $fillable = [
+        'name',
+        'icon',
+        'slug'
+    ];
+
+    const GRADE_SCHOOL = 'Grade School';
+    const HIGH_SCHOOL = 'High School';
+    const SENIOR_HIGH_SCHOOL = 'Senior High School';
+    const COLLEGE = 'College';
+    const EDUCATIONS = [
+        ['name' => self::GRADE_SCHOOL],
+        ['name' => self::HIGH_SCHOOL],
+        ['name' => self::SENIOR_HIGH_SCHOOL],
+        ['name' => self::COLLEGE],
+    ];
 
     public function records()
     {

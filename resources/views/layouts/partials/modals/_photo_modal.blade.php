@@ -8,8 +8,8 @@
             <div class="col-md-6 d-flex flex-column justify-content-center">
                 <video id="webCam" autoplay playsinline width="400" height="400"></video>
                 <div class="d-flex flex-row gap-3 justify-content-center ">
-                    <button type="button" class="btn btn-sm btn-danger" id="btn-on-off-camera">Start Camera</button>
-                    <button type="button" class="btn btn-sm btn-info" id="btn-take-picture">
+                    <button type="button" class="btn btn__toggle__on__of__camera" id="btn-on-off-camera">Start Camera</button>
+                    <button type="button" class="btn" id="btn-take-picture">
                         <i class="fa-solid fa-camera"></i>
                         Take Photo
                     </button>

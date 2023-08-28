@@ -14,9 +14,8 @@ return new class extends Migration {
     {
         Schema::create('school_years', function (Blueprint $table) {
             $table->id();
-            $table->year('start_year');
-            $table->year('end_year');
-            $table->timestamps();
+            $table->string('school_year');
+            $table->boolean('is_current')->default(false);
         });
     }
 

@@ -10,9 +10,8 @@ class Record extends Model
     use HasFactory;
 
     protected $fillable = [
-        'record_type_id',
         'education_id',
-        'guardian_id',
+        'role_id',
         'first_name',
         'middle_name',
         'last_name',
@@ -23,24 +22,21 @@ class Record extends Model
         'school_year',
         'level',
         'section',
-        'school_ID',
+        'student_id_number',
         'signature',
-        'picture',
+        'guardian_full_name',
+        'guardian_contact_number',
+        'guardian_complete_address'
     ];
-
-    public function recordType()
-    {
-        return $this->belongsTo(Record::class);
-    }
 
     public function education()
     {
         return $this->belongsTo(Education::class);
     }
 
-    public function guardian()
+    public function role()
     {
-        return $this->belongsTo(Guardian::class);
+        return $this->belongsTo(Role::class);
     }
 
     public function transactions()

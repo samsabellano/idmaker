@@ -1,8 +1,11 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/flatpickr.js": "/js/flatpickr.js",
+    "/js/alpine.js": "/js/alpine.js",
+    "/js/virtual-select-init.js": "/js/virtual-select-init.js",
+    "/js/turbo.js": "/js/turbo.js",
+    "/css/dependencies.css": "/css/dependencies.css",
     "/css/app.css": "/css/app.css",
-    "/css/bootstrap.css": "/css/bootstrap.css",
     "/css/fontawesome.css": "/css/fontawesome.css",
     "/css/auth.css": "/css/auth.css",
     "/webfonts/fa-brands-400.ttf": "/webfonts/fa-brands-400.ttf",

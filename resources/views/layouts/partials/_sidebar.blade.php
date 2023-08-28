@@ -16,23 +16,25 @@
         <div class="main__navbar mx-4">
             <ul class="list-unstyled ps-0">
                 <li class="mb-1">
-                    <a href="{{ route('school.dashboard') }}" class="btn d-flex btn-block align-items-center w-100 border-0 sidebar__buttons
+                    <a href="{{ auth()->user()->role_id ===  App\Models\Role::SUPER_ADMIN ? route('connict.dashboard') : route('school.dashboard') }}"
+                        class="btn d-flex btn-block align-items-center w-100 border-0 sidebar__buttons
                         {{ Route::is('school.dashboard') ? 'sidebar__btn__active active' : ''}}">
                         <div class="d-flex align-items-center justify-content-center sidebar__button__icon__container
                             fade__in__sidebar__icon__container">
-                            <i class="fa-solid fa-chart-area"></i>
+                            <i class="bi bi-grid-1x2"></i>
                         </div>
-                        <small>Dashboard</small>
+                        Dashboard
                     </a>
                 </li>
                 <li class="mb-1">
-                    <a href="{{ route('school.transaction.index') }}" class="btn d-flex btn-block align-items-center w-100 border-0 sidebar__buttons
+                    <a href="{{ auth()->user()->role_id ===  App\Models\Role::SUPER_ADMIN ? route('connict.transaction.index') : '' }}"
+                        class="btn d-flex btn-block align-items-center w-100 border-0 sidebar__buttons
                         {{ Route::is('school.transaction.index') ? 'sidebar__btn__active active' : ''}}">
                         <div class="d-flex align-items-center justify-content-center sidebar__button__icon__container
                             fade__in__sidebar__icon__container">
-                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                            <i class="bi bi-arrow-left-right"></i>
                         </div>
-                        <small>Transactions</small>
+                        Transactions
                     </a>
                 </li>
                 <li class="mb-1">
@@ -40,18 +42,18 @@
                         {{ Route::is('school.create_id.index') ? 'sidebar__btn__active active' : ''}}">
                         <div class="d-flex align-items-center justify-content-center sidebar__button__icon__container
                             fade__in__sidebar__icon__container">
-                            <i class="fa-regular fa-id-badge"></i>
+                            <i class="bi bi-person-bounding-box"></i>
                         </div>
-                        <small>Create ID</small>
+                        Create ID
                     </a>
                 </li>
                 <li class="mb-1">
                     <a href="" class="btn d-flex btn-block align-items-center w-100 border-0 sidebar__buttons">
                         <div class="d-flex align-items-center justify-content-center sidebar__button__icon__container
                             fade__in__sidebar__icon__container">
-                            <i class="fa-solid fa-pen-to-square"></i>
+                            <i class="bi bi-pencil-square"></i>
                         </div>
-                        <small>ID Corrections</small>
+                        ID Corrections
                     </a>
                 </li>
                 <li class="mb-1">
@@ -59,9 +61,9 @@
                         sidebar__btn__collapse" data-bs-toggle="collapse" data-bs-target="#userAccount-collapse"
                         aria-expanded="true">
                         <div class="d-flex align-items-center justify-content-center sidebar__button__icon__container">
-                            <i class="fa-solid fa-users-gear"></i>
+                            <i class="bi bi-people"></i>
                         </div>
-                        <small>User Accounts</small>
+                        User Accounts
                     </button>
                     <div class="collapse {% if url_name in context_urls_for_tickets %}show{% endif %}"
                         id="userAccount-collapse" style="">
@@ -90,12 +92,22 @@
                     </div>
                 </li>
                 <li class="mb-1">
+                    <a href="{{ route('connict.administrator.education.index') }}" class="btn d-flex btn-block align-items-center w-100 border-0 sidebar__buttons
+                        {{ Route::is('connict.administrator.education.*') ? 'sidebar__btn__active active' : ''}}">
+                        <div class="d-flex align-items-center justify-content-center sidebar__button__icon__container
+                            fade__in__sidebar__icon__container">
+                            <i class="bi bi-person-gear"></i>
+                        </div>
+                        Administrator
+                    </a>
+                </li>
+                <li class="mb-1">
                     <a href="" class="btn d-flex btn-block align-items-center w-100 border-0 sidebar__buttons">
                         <div class="d-flex align-items-center justify-content-center sidebar__button__icon__container
                             fade__in__sidebar__icon__container">
-                            <i class="fa-regular fa-folder-open"></i>
+                            <i class="bi bi-journal-text"></i>
                         </div>
-                        <small>Staff Log</small>
+                        Staff Log
                     </a>
                 </li>
             </ul>

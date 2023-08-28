@@ -1,4 +1,4 @@
-@extends('layouts.school.index', ['title' => 'Transactions - Web ID Maker'])
+@extends('index', ['title' => 'Transactions - Web ID Maker'])
 
 
 @section('page-header')
@@ -11,7 +11,7 @@
 @section('page-main-content')
 <div class="row transactions">
     <div class="col-12">
-        @if ($transactions->count() > 0)
+        @if (!$transactions->isEmpty())
         <div class="card custom__card p-0">
             <div class="card-header border-0 d-flex align-items-center justify-content-between">
                 <h6 class="mb-0">Transaction Records</h6>

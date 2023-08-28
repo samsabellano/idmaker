@@ -21,6 +21,7 @@ class RouteServiceProvider extends ServiceProvider
     public const LOGOUT_REDIRECT_URL = '/';
     public const LOGIN_REDIRECT_URL = '/';
     public const SCHOOL_REDIRECT_URL = '/school/dashboard';
+    public const CONNICT_URL = '/connict/dashboard';
 
     /**
      * The controller namespace for the application.

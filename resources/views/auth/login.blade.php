@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dependencies.css') }}" data-turbo-track="reload">
+    <link rel="stylesheet" href="{{ asset('css/auth.css') }}" data-turbo-track="reload">
+    <script src="{{ asset('js/turbo.js') }}" data-turbo-track="reload"></script>
     <title>@yield('title', 'Web ID Maker')</title>
 </head>
 
@@ -17,8 +18,14 @@
                 <div class="login__card">
                     <div class="py-4 text-center login__header mb-2">
                         <h3>Web ID Maker</h3>
-                        <small>Access your dashboard</small>
+                        <small>Welcome back!</small>
                     </div>
+                    @if (session()->has('error'))
+                    <ul class='form__errors mb-3 d-flex gap-2'>
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <li>{{ session('error') }}</li>
+                    </ul>
+                    @endif
                     <form action="{{ route('auth.login') }}" method="post" novalidate>
                         @csrf
                         <div class="form-floating mb-3">

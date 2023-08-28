@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Education;
-use App\Models\Guardian;
 use App\Models\Role;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,9 +16,8 @@ return new class extends Migration {
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Education::class, 'education_id')->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Role::class, 'role_id')->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Guardian::class, 'guardian_id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Education::class, 'education_id')->constrained('educations');
+            $table->foreignIdFor(Role::class, 'role_id')->constrained('roles')->cascadeOnDelete();
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');
@@ -30,9 +28,11 @@ return new class extends Migration {
             $table->year('school_year')->nullable();
             $table->string('level')->nullable();
             $table->string('section')->nullable();
-            $table->string('school_id')->nullable();
+            $table->string('student_id_number')->nullable();
             $table->string('signature')->nullable();
-            $table->string('picture')->nullable();
+            $table->string('guardian_full_name');
+            $table->string('guardian_contact_number')->nullable();
+            $table->string('guardian_complete_address')->nullable();
             $table->timestamps();
         });
     }

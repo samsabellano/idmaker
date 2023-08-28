@@ -15,12 +15,11 @@ class SchoolYearSeeder extends Seeder
      */
     public function run()
     {
-        $school_years = array(2020, 2021, 2022, 2023, 2024);
+        $school_years = array("2020 - 2021", "2021 - 2022", "2022 - 2023", "2023 - 2024", "2024 - 2025");
 
         foreach ($school_years as $year) {
             SchoolYear::firstOrCreate([
-                'start_year' => $year,
-                'end_year' => $year,
+                'school_year' => $year,
             ]);
         }
     }

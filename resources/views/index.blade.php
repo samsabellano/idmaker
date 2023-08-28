@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/dependencies.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/virtual-select.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="{{ asset('js/webcam-easy.min.js') }}"></script>
     <title>{{ $title }}</title>
@@ -24,17 +25,19 @@
                         @yield('page-header')
                     </div>
                 </div>
-                <div class="container-fluid px-0 px-xl-2">
+                <div class="container-fluid px-xl-2">
                     <div class="w-100 dashboard">
                         @yield('page-main-content')
                     </div>
                 </div>
-                {{-- @include('layouts.partials._messages') --}}
             </div>
         </div>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/alpine.js') }}"></script>
     <script src="{{ asset('js/flatpickr.js') }}"></script>
+    {{-- <script src="{{ asset('js/virtual-select.min.js') }}"></script>
+    <script src="{{ asset('js/virtual-select-init.js') }}"></script> --}}
     @stack('modal-error')
 </body>
 

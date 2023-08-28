@@ -15,7 +15,7 @@ return new class extends Migration {
     {
         Schema::create('qr_codes', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Record::class, 'record_id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Record::class, 'record_id')->constrained('records')->cascadeOnDelete();
             $table->string('qr_code');
             $table->timestamps();
         });

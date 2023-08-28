@@ -17,9 +17,9 @@ return new class extends Migration {
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(School::class, 'school_id')->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Record::class, 'record_id')->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Status::class, 'status_id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(School::class, 'school_id')->constrained('schools')->cascadeOnDelete();
+            $table->foreignIdFor(Record::class, 'record_id')->constrained('records')->cascadeOnDelete();
+            $table->foreignIdFor(Status::class, 'status_id')->constrained('statuses')->cascadeOnDelete();
             $table->uuid();
             $table->timestamps();
         });

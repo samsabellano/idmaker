@@ -1,4 +1,4 @@
-@extends('layouts.school.index', ['title' => 'Create ID - Web ID Maker'])
+@extends('index', ['title' => 'Create ID - Web ID Maker'])
 
 @section('page-main-content')
 <div class="row create__id mb-5 mt-4">
@@ -9,7 +9,7 @@
             <small>Please select the type of user for ID creation.</small>
         </div>
         <div class="row justify-content-center">
-            <div class="col-xxl-4 col-lg-6 col-md-6 col-sm-12">
+            <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12">
                 <div class="card custom__card hover__card">
                     <div class="card-body text-center">
                         <div class="d-flex align-items-center gap-3">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-lg-6 col-md-6 col-sm-12">
+            <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12">
                 <div class="card custom__card hover__card">
                     <div class="card-body text-center">
                         <div class="d-flex align-items-center gap-3">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-lg-6 col-md-6 col-sm-12">
+            <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12">
                 <div class="card custom__card hover__card">
                     <div class="card-body text-center">
                         <div class="d-flex align-items-center gap-3">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-lg-6 col-md-6 col-sm-12">
+            <div class="col-xxl-3 col-lg-6 col-md-6 col-sm-12">
                 <div class="card custom__card hover__card" data-bs-toggle="modal" data-bs-target="#createStudentId">
                     <div class="card-body text-center">
                         <div class="d-flex align-items-center gap-3">
@@ -74,7 +74,7 @@
             <small>Please select the type of user for ID creation.</small>
         </div>
         <div class="row justify-content-center">
-            <div class="col-xxl-4 col-lg-4 col-md-6 col-sm-12">
+            <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12">
                 <div class="card custom__card hover__card">
                     <div class="card-body text-center">
                         <div class="d-flex align-items-center gap-3">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-lg-4 col-md-6 col-sm-12">
+            <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12">
                 <div class="card custom__card hover__card">
                     <div class="card-body text-center">
                         <div class="d-flex align-items-center gap-3">
@@ -102,7 +102,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-lg-4 col-md-6 col-sm-12">
+            <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12">
                 <div class="card custom__card hover__card">
                     <div class="card-body text-center">
                         <div class="d-flex align-items-center gap-3">
@@ -121,7 +121,7 @@
 </div>
 @endsection
 
-@if ($errors->storeCollegeId->any())
+@if ($errors->storeCollegeID->any())
 @push('modal-error')
 <script>
     $(function () {
