@@ -1133,8 +1133,29 @@ a:hover {
   font-size: 0.875rem;
   color: white;
 }
-.administrator .education__name {
+.administrator .education__card .education__name {
   font-size: 0.875rem;
+}
+.administrator .education__card .education__btn__action {
+  font-size: 0.75rem;
+  height: 27px;
+  width: 27px;
+  border-radius: 3.125rem;
+  border: 0;
+  transition: 0.4s;
+}
+.administrator .education__card .education__btn__action:hover {
+  background-color: #FFFFFF;
+}
+.administrator .education__card .btn__action__container {
+  display: none !important;
+  right: 18px;
+  background-color: #F1F1F1;
+  border-radius: 3.125rem;
+  padding: 4px;
+}
+.administrator .education__card:hover .btn__action__container {
+  display: block !important;
 }
 
 @media (min-width: 768px) {

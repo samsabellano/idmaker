@@ -30,3 +30,17 @@
     </div>
 </div>
 @endsection
+
+@if ($errors->updateEducation->any() || session()->has('updateError') )
+{{-- Show edit modal based on the selected record/data --}}
+<input type="hidden" id="education_id" value="{{ session('updateError') }}">
+@push('modal-error')
+<script>
+    const education_id = document.getElementById('education_id');
+    $(function () {
+        $(`#updateEducation${education_id.value}`).modal('show');
+    });
+
+</script>
+@endpush
+@endif

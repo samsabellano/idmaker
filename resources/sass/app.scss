@@ -1387,8 +1387,37 @@ a {
         color: white;
     }
 
-    .education__name {
-        font-size: $fs-14;
+    .education__card {
+        .education__name {
+            font-size: $fs-14;
+        }
+
+        .education__btn__action {
+            font-size: $fs-12;
+            height: 27px;
+            width: 27px;
+            border-radius: $border-radius-50;
+            border: 0;
+            transition: 0.4s;
+
+            &:hover {
+                background-color: #FFFFFF;
+            }
+        }
+
+        .btn__action__container {
+            display: none !important;
+            right: 18px;
+            background-color: #F1F1F1;
+            border-radius: $border-radius-50;
+            padding: 4px;
+        }
+
+        &:hover {
+            .btn__action__container {
+                display: block !important;
+            }
+        }
     }
 }
 

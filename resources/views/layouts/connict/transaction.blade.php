@@ -1,6 +1,5 @@
 @extends('index', ['title' => 'Transactions - Web ID Maker'])
 
-
 @section('page-header')
 <div class="w-100 d-flex align-items-center justify-content-between">
     <h5 class="page__header__title">Transactions</h5>
