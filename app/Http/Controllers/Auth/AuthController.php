@@ -26,7 +26,7 @@ class AuthController extends Controller
             return redirect()->intended(RouteServiceProvider::SCHOOL_REDIRECT_URL);
         }
 
-        return back()->onlyInput('username')->with('error', 'Invalid username or password. Try again.');
+        return back()->with('error', 'Invalid username or password. Try again.')->withInput();
     }
 
     public function logout(Request $request)

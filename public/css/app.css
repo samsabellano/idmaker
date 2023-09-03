@@ -325,9 +325,15 @@ body {
 .custom__card {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   border: none !important;
+  padding: 25px !important;
+}
+.custom__card .card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 .custom__card .card-body {
-  padding: 10px;
+  padding: 0;
 }
 .custom__card .card-body .card__label {
   font-size: 0.875rem;
@@ -365,6 +371,23 @@ body {
 }
 .custom__card .card-body .card__icon__container__received {
   background-image: linear-gradient(310deg, #f53939, #fbcf33);
+}
+
+.form__button {
+  font-size: 0.875rem;
+  border-radius: 0.625rem;
+  padding: 0.6rem 1rem;
+  border: 0;
+  width: 100px;
+  text-align: center;
+}
+.form__button.form__btn__cancel {
+  color: #1A1E33;
+  background-color: #F2F2F2;
+}
+.form__button.form__btn__submit {
+  color: #FFFFFF;
+  background-color: #1A1E33;
 }
 
 .form-text {
@@ -529,14 +552,16 @@ a:hover {
   margin-bottom: 30px;
 }
 .page__wrapper .page__body__wrapper .page__body .page__header .page__header__title {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 0.938rem !important;
+  font-weight: 500;
   margin-right: 10px;
   margin-bottom: 0 !important;
 }
+.page__wrapper .page__body__wrapper .page__body .page__header .page__header__title .page__name {
+  font-size: 0.875rem;
+}
 .page__wrapper .page__body__wrapper .page__body .page__header .breadcrumb {
   font-size: 0.688rem;
-  padding-top: 15px;
 }
 .page__wrapper .page__main__header {
   position: fixed;

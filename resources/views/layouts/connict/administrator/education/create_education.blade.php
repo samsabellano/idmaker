@@ -1,38 +1,46 @@
-<div class="modal custom__modal" id="updateEducation{{ $education->id }}" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title">Update Education</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="{{ route('connict.administrator.education.update', $education->id) }}" method="POST">
-                <div class="modal-body">
+@extends('layouts.connict.administrator.main', ['title' => 'Administrator - Manage Education'])
+
+@section('breadcrumbs-page-name')
+<li class="breadcrumb-item page__name" aria-current="page">
+    <a href="{{ route('connict.administrator.education.index') }}" class="text-dark">
+        Education
+    </a>
+</li>
+<li class="breadcrumb-item page__name active" aria-current="page">New</li>
+@endsection
+
+@section('admin-main-content')
+<div class="row justify-content-center">
+    <div class="col-md-7 mt-3">
+        <div class="card border-0 shadow-sm position-relative custom__card">
+            <h6 class="card__title">New Education</h6>
+            <form action="{{ route('connict.administrator.education.store') }}" method="POST">
+                <div class="card-body">
                     @csrf
-                    @method('PUT')
                     <div class="col-12">
                         <div class="form-floating mb-3">
-                            <input type="text" class="@error('name', 'updateEducation') is-invalid @enderror form-control
-                                custom__text__input" name="name" value="{{ $education->name }}">
+                            <input type="text" class="@error('name') is-invalid @enderror form-control
+                                custom__text__input" name="name" value="{{ old('name') }}">
                             <label class="custom__text__input__label">
                                 Education name
                             </label>
-                            @error('name', 'updateEducation')
+                            @error('name')
                             <span class="text-danger custom__field__message">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-floating mb-3">
-                            <input type="text" class="@error('icon', 'updateEducation') is-invalid @enderror form-control
-                                custom__text__input" name="icon" value="{{ $education->icon }}">
+                            <input type="text" class="@error('icon') is-invalid @enderror form-control
+                                custom__text__input" name="icon" value="{{ old('icon') }}">
                             <label class="custom__text__input__label">
                                 Icon
                             </label>
-                            @error('icon', 'updateEducation')
+                            @error('icon')
                             <span class="text-danger custom__field__message">{{ $message }}</span>
                             <br>
                             @enderror
-                            <div class="d-inline-flex flex-column mt-2">
+                            <div class="d-inline-flex flex-column my-2">
                                 <small class="mb-1" style="font-weight: 600; font-size: 13px;">Find Icon</small>
                                 <a href="https://icons.getbootstrap.com/" class="d-inline-flex gap-1"
                                     style="font-size: 12px; color: #1A1E33; font-weight: 500;" target="_blank">
@@ -54,13 +62,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="modal__button btn__modal__cancel"
-                        data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="shadow modal__button btn__modal__submit">Save</button>
+                    <div class="modal-footer gap-3 justify-content-start">
+                        <a href="{{ route('connict.administrator.education.index') }}" type="button"
+                            class="form__button form__btn__cancel">Cancel</a>
+                        <button type="submit" class="shadow form__button form__btn__submit">Save</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+@endsection

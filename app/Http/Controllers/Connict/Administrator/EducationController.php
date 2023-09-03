@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Connict\StoreEducationRequest;
 use App\Http\Requests\Connict\UpdateEducationRequest;
 use App\Models\Education;
-use Illuminate\Http\Request;
-
 
 class EducationController extends Controller
 {
@@ -19,8 +17,17 @@ class EducationController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('layouts.connict.administrator.education.create_education');
+    }
+
     public function store(StoreEducationRequest $request)
     {
+        if (isset($request->validator) && $request->validator->fails()) {
+            return back()->withErrors($request->validator, 'storeEducation')->withInput();
+        }
+
         Education::create(array_merge($request->validated(), [
             'slug' => \Str::slug($request->name)
         ]));
@@ -28,28 +35,29 @@ class EducationController extends Controller
         return back();
     }
 
-    public function show($id)
+    public function show(Education $education)
     {
-        //
+        return view('layouts.connict.administrator.education.update_education', [
+            'education' => $education
+        ]);
     }
 
     public function update(UpdateEducationRequest $request, Education $education)
     {
         if (isset($request->validator) && $request->validator->fails()) {
-            $request->session()->put('updateError', $education->id);
-            return back()->withErrors($request->validator, 'updateEducation')->withInput();
+            return back()->withErrors($request->validator)->withInput();
         }
 
         $education->update(array_merge($request->validated(), [
             'slug' => \Str::slug($request->name)
         ]));
 
-        $request->session()->forget('updateErrpr');
         return back()->with('success', 'Education successfully updated.');
     }
 
-    public function destroy($id)
+    public function destroy(Education $education)
     {
-        //
+        $education->delete();
+        return back()->with('success', 'Education successfully deleted,');
     }
 }

@@ -44,7 +44,16 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware('auth')->group(function () {
     Route::prefix('connict')->name('connict.')->group(function () {
         Route::prefix('administrator')->name('administrator.')->group(function () {
-            Route::resource('education', EducationController::class);
+            Route::prefix('education')->name('education.')->group(function () {
+                Route::controller(EducationController::class)->group(function () {
+                    Route::get('/', 'index')->name('index');
+                    Route::get('/create', 'create')->name('create');
+                    Route::post('/store', 'store')->name('store');
+                    Route::put('/{education}/update', 'update')->name('update');
+                    Route::get('/{education}/show', 'show')->name('show');
+                    Route::delete('/{education}/delete', 'destroy')->name('destroy');
+                });
+            });
         });
 
         Route::controller(DashboardController::class)->group(function () {
