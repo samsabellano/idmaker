@@ -14,7 +14,8 @@ class School extends Model
         'address',
         'logo',
         'background_image',
-        'has_olsis'
+        'has_olsis',
+        'contact_number'
     ];
 
     public function transactions()

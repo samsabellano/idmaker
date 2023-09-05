@@ -12,14 +12,14 @@ class EducationController extends Controller
     public function index()
     {
         $educations = Education::latest()->get();
-        return view('layouts.connict.administrator.education.index', [
+        return view('layouts.connict.administrator.educations.index', [
             'educations' => $educations
         ]);
     }
 
     public function create()
     {
-        return view('layouts.connict.administrator.education.create_education');
+        return view('layouts.connict.administrator.educations.create_education');
     }
 
     public function store(StoreEducationRequest $request)
@@ -37,8 +37,10 @@ class EducationController extends Controller
 
     public function show(Education $education)
     {
-        return view('layouts.connict.administrator.education.update_education', [
-            'education' => $education
+        $educations = Education::where('id', '!=', $education->id)->latest()->get();
+        return view('layouts.connict.administrator.educations.update_education', [
+            'education' => $education,
+            'educations' => $educations
         ]);
     }
 

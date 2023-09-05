@@ -10,7 +10,10 @@ class SchoolController extends Controller
 {
     public function index()
     {
-        School::latest()->get();
+        $schools = School::orderBy("created_at", "desc")->get();
+        return view('layouts.connict.administrator.schools.index', [
+            'schools' => $schools
+        ]);
     }
 
     public function create()

@@ -10,11 +10,11 @@
                 <h6 class="mb-0 education__name">{{ $education->name }}</h6>
                 <div
                     class="d-flex align-items-center justify-content-end gap-2 position-absolute btn__action__container">
-                    <a href="{{ route('connict.administrator.education.show', $education) }}" type="button"
+                    <a href="{{ route('connict.administrator.education.show', $education->id) }}" type="button"
                         class="btn btn-sm p-0 education__btn__action">
                         <i class="bi bi-pencil"></i>
                     </a>
-                    <form action="{{ route('connict.administrator.education.destroy', $education) }}" method="post">
+                    <form action="{{ route('connict.administrator.education.destroy', $education->id) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm p-0 education__btn__action" data-bs-toggle="modal"

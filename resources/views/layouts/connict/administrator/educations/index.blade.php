@@ -15,7 +15,7 @@
             </a>
         </div>
     </div>
-    @include('layouts.connict.administrator.education.partials._education_list')
+    @include('layouts.connict.administrator.educations.partials._education_list')
 </div>
 @endsection
 

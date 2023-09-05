@@ -10,7 +10,7 @@
 @endsection
 
 @section('admin-main-content')
-<div class="row justify-content-center">
+<div class="row ">
     <div class="col-md-7 mt-3">
         <div class="card border-0 shadow-sm position-relative custom__card">
             <h6 class="card__title">Edit Education</h6>
@@ -71,6 +71,38 @@
                 </div>
             </form>
         </div>
+    </div>
+    <div class="col-md-5 mt-3">
+        <div class="mb-3 d-flex justify-content-between">
+            <div class="d-flex flex-column">
+                <h6 class="mb-0 card__title" style="font-size: 14px;">Edit education from the list.</h6>
+            </div>
+            <small style="font-size: 12px;">
+                {{ $educations->count() }}
+                {{ $educations->count() > 1 ? 'items' : 'item' }}
+            </small>
+        </div>
+        @if (!$educations->isEmpty())
+        @foreach ($educations as $education)
+        <div class="card border-0 shadow-sm position-relative mb-2 education__card">
+            <div class="d-flex align-items-center gap-3">
+                <div class="card__icon__container card__icon__container__printing">
+                    {!! $education->icon !!}
+                </div>
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <h6 class="mb-0 education__name">{{ $education->name }}</h6>
+                    <div
+                        class="d-flex align-items-center justify-content-end gap-2 position-absolute btn__action__container">
+                        <a href="{{ route('connict.administrator.education.show', $education->id) }}" type="button"
+                            class="btn btn-sm p-0 education__btn__action">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+        @endif
     </div>
 </div>
 @endsection

@@ -1168,6 +1168,9 @@ a:hover {
   border-radius: 3.125rem;
   border: 0;
   transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .administrator .education__card .education__btn__action:hover {
   background-color: #FFFFFF;
@@ -1180,6 +1183,40 @@ a:hover {
   padding: 4px;
 }
 .administrator .education__card:hover .btn__action__container {
+  display: block !important;
+}
+.administrator .school__card .card__icon__container .school__logo {
+  height: 43px;
+  width: 43px;
+  border-radius: var(--border-radius-10);
+  box-shadow: var(--shadows-sm);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.administrator .school__card .card__badge {
+  color: #606060;
+}
+.administrator .school__card .card__badge i {
+  color: #F7414E;
+  font-size: 0.75rem;
+}
+.administrator .school__card .school__details .school__name {
+  font-size: 0.938rem;
+  color: #212529;
+  font-weight: 600;
+}
+.administrator .school__card .school__details .school__address {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+.administrator .school__card .btn__action__container {
+  display: none !important;
+  right: 18px;
+  background-color: #F1F1F1;
+  border-radius: 3.125rem;
+  padding: 4px;
+}
+.administrator .school__card:hover .btn__action__container {
   display: block !important;
 }
 

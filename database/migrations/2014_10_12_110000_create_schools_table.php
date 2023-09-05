@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('logo')->nullable();
             $table->string('background_image')->nullable();
             $table->boolean('has_olsis')->default(false);
+            $table->string('contact_number')->nullable();
             $table->timestamps();
         });
     }

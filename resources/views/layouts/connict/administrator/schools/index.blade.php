@@ -1,57 +1,31 @@
-@extends('index', ['title' => 'Schools - Web ID Maker'])
+@extends('layouts.connict.administrator.main', ['title' => 'Administrator - Manage Education'])
 
-@section('page-header')
-<div class="w-100 d-flex align-items-center justify-content-between">
-    <h5 class="page__header__title">Administrator</h5>
-</div>
+@section('breadcrumbs-page-name')
+<li class="breadcrumb-item page__name active" aria-current="page">School</li>
 @endsection
 
-@section('page-main-content')
-@include('layouts.connict.administrator.education.partials.modal.create_education_modal')
-<div class="row administrator">
-    <div class="col-12">
-        @include('layouts.connict.administrator.partials._administrator_tab')
-    </div>
-    <div class="col-12">
-        <div class="row">
-            <div class="col-12 mb-4 d-flex align-items-center justify-content-between">
-                <h6 class="mb-0">Education Types</h6>
-                <div class="d-flex align-items-center justify-content-center">
-                    <button class="btn shadow btn__add__education" data-bs-toggle="modal"
-                        data-bs-target="#createEducationModal">
-                        <i class="bi bi-plus"></i>
-                        Add New
-                    </button>
-                </div>
-            </div>
-            @include('layouts.connict.administrator.education.partials._education_list')
+@section('admin-main-content')
+<div class="row">
+    <div class="col-12 mb-3 d-flex align-items-center justify-content-between">
+        <h6 class="mb-0">List of Schools</h6>
+        <div class="d-flex align-items-center justify-content-center">
+            <a href="{{ route('connict.administrator.education.create') }}" class="btn shadow btn__add__education">
+                <i class="bi bi-plus"></i>
+                Add New
+            </a>
         </div>
     </div>
+    @include('layouts.connict.administrator.schools.partials._school_list')
 </div>
 @endsection
 
-@if ($errors->storeEducation->any())
+{{-- @if ($errors->storeEducation->any() )
 @push('modal-error')
 <script>
     $(function () {
-        $('#createEducationModal').modal('show');
+        $(`#createEducationModal`).modal('show');
     });
 
 </script>
 @endpush
-@endif
-
-
-@if ($errors->updateEducation->any() || session()->has('updateError') )
-{{-- Show edit modal based on the selected record/data --}}
-<input type="hidden" id="education_id" value="{{ session('updateError') }}">
-@push('modal-error')
-<script>
-    const education_id = document.getElementById('education_id');
-    $(function () {
-        $(`#updateEducation${education_id.value}`).modal('show');
-    });
-
-</script>
-@endpush
-@endif
+@endif --}}

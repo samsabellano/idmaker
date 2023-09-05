@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Connict\Administrator\EducationController;
+use App\Http\Controllers\Connict\Administrator\SchoolController;
 use App\Http\Controllers\Connict\TransactionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\School\CollegeIdController;
@@ -44,7 +45,7 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware('auth')->group(function () {
     Route::prefix('connict')->name('connict.')->group(function () {
         Route::prefix('administrator')->name('administrator.')->group(function () {
-            Route::prefix('education')->name('education.')->group(function () {
+            Route::prefix('educations')->name('education.')->group(function () {
                 Route::controller(EducationController::class)->group(function () {
                     Route::get('/', 'index')->name('index');
                     Route::get('/create', 'create')->name('create');
@@ -52,6 +53,11 @@ Route::middleware('auth')->group(function () {
                     Route::put('/{education}/update', 'update')->name('update');
                     Route::get('/{education}/show', 'show')->name('show');
                     Route::delete('/{education}/delete', 'destroy')->name('destroy');
+                });
+            });
+            Route::prefix('schools')->name('school.')->group(function () {
+                Route::controller(SchoolController::class)->group(function () {
+                    Route::get('/', 'index')->name('index');
                 });
             });
         });
