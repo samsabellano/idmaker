@@ -19,16 +19,6 @@ class AuthController extends Controller
         return $this->redirectAuthenticatedUser() ?: view('auth.login');
     }
 
-    public function login(AuthRequest $request)
-    {
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password, 'is_active' => true])) {
-            $request->session()->regenerate();
-            return redirect()->intended(RouteServiceProvider::SCHOOL_REDIRECT_URL);
-        }
-
-        return back()->with('error', 'Invalid username or password. Try again.')->withInput();
-    }
-
     public function logout(Request $request)
     {
         return $this->logoutUser($request);

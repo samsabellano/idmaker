@@ -92,8 +92,8 @@
                     </div>
                 </li>
                 <li class="mb-1">
-                    <a href="{{ route('connict.administrator.education.index') }}" class="btn d-flex btn-block align-items-center w-100 border-0 sidebar__buttons
-                        {{ Route::is('connict.administrator.education.*') ? 'sidebar__btn__active active' : ''}}">
+                    <a href="{{ route('connict.administrator.school.index') }}" class="btn d-flex btn-block align-items-center w-100 border-0 sidebar__buttons
+                        {{ Route::is('connict.administrator.*') ? 'sidebar__btn__active active' : ''}}">
                         <div class="d-flex align-items-center justify-content-center sidebar__button__icon__container
                             fade__in__sidebar__icon__container">
                             <i class="bi bi-person-gear"></i>

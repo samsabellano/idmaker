@@ -3,8 +3,9 @@
 namespace App\Http\Requests\Connict;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\File;
 
-class StoreEducationRequest extends FormRequest
+class StoreSchoolRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +26,20 @@ class StoreEducationRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'icon' => 'required'
+            'address' => 'required',
+            'background_image' => 'nullable',
+            'contact_number' => 'nullable',
+            'logo' => [
+                'required',
+                File::image()
+            ]
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'logo.mimes' => 'This field only accepts an image.'
         ];
     }
 }

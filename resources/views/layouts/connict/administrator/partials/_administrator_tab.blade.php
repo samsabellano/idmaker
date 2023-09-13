@@ -1,14 +1,7 @@
 <ul class="nav mb-3 tab gap-4">
     <li class="nav-item">
-        <a href="{{ route('connict.administrator.education.index') }}" class="nav-link d-flex align-items-center gap-2
-            {{ Route::is('connict.administrator.education.index') ? 'active' : '' }}">
-            <i class="bi bi-mortarboard"></i>
-            Educations
-        </a>
-    </li>
-    <li class="nav-item">
         <a href="{{ route('connict.administrator.school.index') }}" class="nav-link d-flex align-items-center gap-2
-            {{ Route::is('connict.administrator.school.index') ? 'active' : '' }}">
+            {{ Route::is('connict.administrator.school.*') ? 'active' : '' }}">
             <i class="bi bi-geo-alt"></i>
             Schools
         </a>
@@ -34,7 +27,7 @@
     <li class="nav-item">
         <a href="" class="nav-link d-flex align-items-center gap-2">
             <i class="bi bi-currency-dollar"></i>
-            Subscriptions
+            Pricing
         </a>
     </li>
     <li class="nav-item">

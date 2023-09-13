@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="{{ asset('js/webcam-easy.min.js') }}"></script>
     <title>{{ $title }}</title>
+    @livewireStyles
 </head>
 
 <body>
@@ -33,6 +34,8 @@
             </div>
         </div>
     </div>
+
+    @livewireScripts
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/alpine.js') }}"></script>

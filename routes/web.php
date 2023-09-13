@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Connict\Administrator\EducationController;
 use App\Http\Controllers\Connict\Administrator\SchoolController;
 use App\Http\Controllers\Connict\TransactionController;
 use App\Http\Controllers\DashboardController;
@@ -22,7 +21,6 @@ use Illuminate\Support\Facades\Route;
 Route::controller(AuthController::class)->group(function () {
     Route::get('/', 'index')->name('index');
     Route::prefix('auth')->name('auth.')->group(function () {
-        Route::post('/login', 'login')->name('login');
         Route::post('/logout', 'logout')->name('logout');
     });
 });
@@ -45,19 +43,15 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware('auth')->group(function () {
     Route::prefix('connict')->name('connict.')->group(function () {
         Route::prefix('administrator')->name('administrator.')->group(function () {
-            Route::prefix('educations')->name('education.')->group(function () {
-                Route::controller(EducationController::class)->group(function () {
-                    Route::get('/', 'index')->name('index');
-                    Route::get('/create', 'create')->name('create');
-                    Route::post('/store', 'store')->name('store');
-                    Route::put('/{education}/update', 'update')->name('update');
-                    Route::get('/{education}/show', 'show')->name('show');
-                    Route::delete('/{education}/delete', 'destroy')->name('destroy');
-                });
-            });
             Route::prefix('schools')->name('school.')->group(function () {
                 Route::controller(SchoolController::class)->group(function () {
                     Route::get('/', 'index')->name('index');
+                    Route::get('/create', 'create')->name('create');
+                    Route::post('/store', 'store')->name('store');
+                    Route::get('/{school}/edit', 'edit')->name('edit');
+                    Route::put('/{school}/update', 'update')->name('update');
+                    Route::delete('/{school}/destroy', 'destroy')->name('destroy');
+
                 });
             });
         });

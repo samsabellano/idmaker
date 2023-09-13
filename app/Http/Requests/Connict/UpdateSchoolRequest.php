@@ -3,9 +3,9 @@
 namespace App\Http\Requests\Connict;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\File;
 
-class UpdateEducationRequest extends FormRequest
+class UpdateSchoolRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +25,18 @@ class UpdateEducationRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', Rule::unique('educations')->ignore($this->education)],
-            'icon' => 'required',
+            'name' => 'required',
+            'address' => 'required',
+            'contact_number' => 'nullable',
+            'logo' => [
+                'nullable',
+                File::image(),
+            ]
         ];
     }
 
     public $validator = null;
-    protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
+    public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
     {
         $this->validator = $validator;
     }

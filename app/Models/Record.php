@@ -10,8 +10,8 @@ class Record extends Model
     use HasFactory;
 
     protected $fillable = [
-        'education_id',
         'role_id',
+        'id_type',
         'first_name',
         'middle_name',
         'last_name',
@@ -28,11 +28,6 @@ class Record extends Model
         'guardian_contact_number',
         'guardian_complete_address'
     ];
-
-    public function education()
-    {
-        return $this->belongsTo(Education::class);
-    }
 
     public function role()
     {

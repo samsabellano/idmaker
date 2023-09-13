@@ -16,8 +16,8 @@ return new class extends Migration {
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Education::class, 'education_id')->constrained('educations');
             $table->foreignIdFor(Role::class, 'role_id')->constrained('roles')->cascadeOnDelete();
+            $table->string('id_type');
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');

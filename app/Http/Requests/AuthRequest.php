@@ -28,4 +28,13 @@ class AuthRequest extends FormRequest
             'password' => ['required'],
         ];
     }
+
+    // Custom field validation message (You can use the default validation message as well.)
+    public function messages()
+    {
+        return [
+            'username.required' => 'Please enter your username.',
+            'password.required' => 'Please enter your password.'
+        ];
+    }
 }

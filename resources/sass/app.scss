@@ -144,7 +144,7 @@ $bg-dark-green: #1D5C63;
 
 .custom__text__input {
     border-radius: $border-radius-10;
-    font-size: $fs-15;
+    font-size: $fs-14;
     border: 1px solid #ced4da;
 
     &:focus {
@@ -183,12 +183,6 @@ $bg-dark-green: #1D5C63;
     font-size: $fs-13;
 }
 
-.form-floating {
-    label {
-        top: 4px;
-    }
-}
-
 body {
     background-color: $body-color;
 }
@@ -220,13 +214,6 @@ body {
 
 .form-check-label {
     font-size: $fs-14;
-}
-
-.form-check-input {
-    height: 13px !important;
-    width: 13px !important;
-    margin-top: 6px;
-    border-radius: $border-radius-50-percent !important;
 }
 
 .btn__submit {
@@ -1405,60 +1392,25 @@ a {
         }
     }
 
-    .btn__add__education {
+    // School
+    .btn__add__school {
         background-color: #1A1E33;
         border-radius: $border-radius-10;
         font-size: $fs-14;
         color: white;
     }
 
-    // Education
-    .education__card {
-        .education__name {
-            font-size: $fs-14;
-        }
-
-        .education__btn__action {
-            font-size: $fs-12;
-            height: 27px;
-            width: 27px;
-            border-radius: $border-radius-50;
-            border: 0;
-            transition: 0.4s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            &:hover {
-                background-color: #FFFFFF;
-            }
-        }
-
-        .btn__action__container {
-            display: none !important;
-            right: 18px;
-            background-color: #F1F1F1;
-            border-radius: $border-radius-50;
-            padding: 4px;
-        }
-
-        &:hover {
-            .btn__action__container {
-                display: block !important;
-            }
-        }
-    }
-
-    // School
     .school__card {
-        .card__icon__container {
-            .school__logo {
-                height: 43px;
-                width: 43px;
-                border-radius: var(--border-radius-10);
-                box-shadow: var(--shadows-sm);
-                object-fit: cover;
-            }
+        padding: 25px;
+
+        .school__logo {
+            padding: 5px;
+            background-color: white !important;
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+            border-radius: $border-radius-10;
+            box-shadow: $button-box-shadow;
         }
 
         .card__badge {
@@ -1483,25 +1435,22 @@ a {
             }
         }
 
-        // .education__name {
-        //     font-size: $fs-14;
-        // }
+        .school__btn__action {
+            font-size: $fs-12;
+            height: 27px;
+            width: 27px;
+            border-radius: $border-radius-50;
+            border: 0;
+            transition: 0.4s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            outline: none;
 
-        // .education__btn__action {
-        //     font-size: $fs-12;
-        //     height: 27px;
-        //     width: 27px;
-        //     border-radius: $border-radius-50;
-        //     border: 0;
-        //     transition: 0.4s;
-        //     display: flex;
-        //     align-items: center;
-        //     justify-content: center;
-
-        //     &:hover {
-        //         background-color: #FFFFFF;
-        //     }
-        // }
+            &:hover {
+                background-color: #FFFFFF;
+            }
+        }
 
         .btn__action__container {
             display: none !important;
@@ -1515,6 +1464,18 @@ a {
             .btn__action__container {
                 display: block !important;
             }
+        }
+    }
+
+    .edit__card,
+    .create__card {
+        .edit__school__logo {
+            padding: 5px;
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+            border-radius: $border-radius-12;
+            box-shadow: $button-box-shadow;
         }
     }
 }

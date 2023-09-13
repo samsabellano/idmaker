@@ -25,9 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->share([
-            'suffixes' => Suffix::all(),
-            'schoolYears' => SchoolYear::all()
-        ]);
+        // view()->share([
+        //     'suffixes' => Suffix::all(),
+        //     'schoolYears' => SchoolYear::all()
+        // ]);
     }
 }
